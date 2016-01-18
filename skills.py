@@ -210,7 +210,9 @@ def sort_by_word_length(words):
             stores_words = [each_word]
             contains_length_and_words[len_of_word] = stores_words    
 
-    return contains_length_and_words.items()
+    sorted_by_length = sorted(contains_length_and_words.items())
+
+    print sorted_by_length
 
 
 def get_sum_zero_pairs(input_list):
