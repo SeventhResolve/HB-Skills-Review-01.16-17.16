@@ -199,8 +199,18 @@ def sort_by_word_length(words):
         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
     """
+    contains_length_and_words = {}
 
-    return []
+    for each_word in words:
+        len_of_word = len(each_word)
+        if len_of_word in contains_length_and_words:
+            stores_words.append(each_word)
+            contains_length_and_words[len_of_word] = stores_words
+        else:
+            stores_words = [each_word]
+            contains_length_and_words[len_of_word] = stores_words    
+
+    return contains_length_and_words.items()
 
 
 def get_sum_zero_pairs(input_list):
