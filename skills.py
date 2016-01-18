@@ -244,8 +244,30 @@ def get_sum_zero_pairs(input_list):
 
     """
 
-    return []
+    pair_sum_is_zero = set([])
+    len_input_list = len(input_list)
+    last_position_of_input_list = len(input_list) - 1
+    pair_dictionary = {}
 
+    for number in input_list:
+        position_number = 0
+        
+        while position_number != last_position_of_input_list:
+            
+            second_number = input_list[(last_position_of_input_list - position_number)]        
+            sum_of_pair = (number + second_number)
+            
+            position_number += 1
+
+            if sum_of_pair == 0:
+                
+                number_pair = [number, second_number]
+                number_pair.sort()
+
+                if number_pair[0] not in pair_dictionary:
+                    pair_dictionary[number_pair[0]] = number_pair
+
+    return pair_dictionary.values()
 
 ##############################################################################
 # You can ignore everything below this.
